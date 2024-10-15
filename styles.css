@@ -25,6 +25,16 @@ body {
     cursor: pointer;
 }
 
+.box {
+    display: inline-block;
+    margin: 5px;
+    padding: 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    background-color: #fff;
+}
+
 .hidden {
     display: none;
 }
