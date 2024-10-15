@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Symbol Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Symbol Guessing Trick</h1>
-        <div id="symbols" class="symbol-list"></div>
-        <button id="next-button">Start Game</button> <!-- This button starts the game -->
-        <div id="result" class="hidden"></div>
+        
+        <!-- Step 1: Display Symbols -->
+        <div id="step1" class="step">
+            <h2>Step 1: Choose a symbol and remember it.</h2>
+            <div id="symbols" class="symbol-list"></div>
+            <button id="start-button">I Have Chosen</button>
+        </div>
+        
+        <!-- Step 2: Group Questions -->
+        <div id="step2" class="step hidden">
+            <h2 id="group-question">Is your symbol in Group 1?</h2>
+            <div id="group-symbols" class="symbol-list"></div>
+            <div class="buttons">
+                <button id="yes-button">Yes</button>
+                <button id="no-button">No</button>
+            </div>
+        </div>
+        
+        <!-- Step 3: Result -->
+        <div id="result" class="hidden">
+            <h2>Your chosen symbol is:</h2>
+            <div id="chosen-symbol" class="chosen-symbol"></div>
+            <div id="boxes" class="boxes"></div>
+            <button id="restart-button">Play Again</button>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
