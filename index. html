@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Emoji Guessing Game</title>
+                <link rel="stylesheet" href="styles.css">
+                </head>
+                <body>
+                    <div class="container">
+                            <h1>Emoji Guessing Game</h1>
+                                    
+                                            <div id="color-selection" class="section">
+                                                        <h2>Select Your Favorite Color:</h2>
+                                                                    <div class="box-container" id="color-boxes"></div>
+                                                                            </div>
+
+                                                                                    <div id="emoji-selection" class="section" style="display: none;">
+                                                                                                <h2>Select an Emoji:</h2>
+                                                                                                            <div class="box-container" id="emoji-boxes"></div>
+                                                                                                                    </div>
+
+                                                                                                                            <div id="question-section" class="section" style="display: none;">
+                                                                                                                                        <h2>Is your emoji on this slide?</h2>
+                                                                                                                                                    <div class="box-container" id="question-boxes"></div>
+                                                                                                                                                                <button id="next-button" onclick="nextSlide()">Next</button>
+                                                                                                                                                                        </div>
+
+                                                                                                                                                                                <div id="result" class="section" style="display: none;">
+                                                                                                                                                                                            <h2>Your Selected Emoji is:</h2>
+                                                                                                                                                                                                        <div id="final-emoji-box" class="emoji-box"></div>
+                                                                                                                                                                                                                    <button onclick="restartGame()">Restart</button>
+                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                </div>
+
+                                                                                                                                                                                                                                    <script src="script.js"></script>
+                                                                                                                                                                                                                                    </body>
+                                                                                                                                                                                                                                    </html>

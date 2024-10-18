@@ -1,0 +1,142 @@
+const colors = ["Red", "Green", "Yellow", "Blue", "Pink", "Black", "Orange", "Purple", "Brown", "Gray"];
+const emojis = ["⭐", "💖", "⚽", "🍎", "📚", "💡", "💰", "🪔", "🤫", "🎁", "🧨", "🥭", "🧊", "🔥", "🫧"];
+const extraEmojis = ["☠️", "🌼", "☔", "🌏", "🍉", "🎀", "🎈", "🏆", "🥎", "🎯"];
+let selectedColor, selectedEmoji;
+let emojiSlides = [];
+let currentSlide = 0;
+
+// Initialize game
+function initGame() {
+        createColorBoxes();
+}
+
+// Create color boxes
+function createColorBoxes() {
+        const colorBoxes = document.getElementById("color-boxes");
+            colors.forEach(color => {
+                        const box = document.createElement("div");
+                                box.className = "box";
+                                        box.textContent = color;
+                                                box.onclick = () => selectColor(color);
+                                                        colorBoxes.appendChild(box);
+            });
+}
+
+// Select color
+function selectColor(color) {
+        selectedColor = color;
+            document.getElementById("color-selection").style.display = "none";
+                createEmojiBoxes();
+}
+
+// Create emoji boxes
+function createEmojiBoxes() {
+        const emojiBoxes = document.getElementById("emoji-boxes");
+            const randomEmojis = shuffleArray([...emojis, ...extraEmojis]).slice(0, 15);
+                randomEmojis.forEach(emoji => {
+                            const box = document.createElement("div");
+                                    box.className = "box";
+                                            box.textContent = emoji;
+                                                    box.onclick = () => selectEmoji(emoji);
+                                                            emojiBoxes.appendChild(box);
+                });
+                    document.getElementById("emoji-selection").style.display = "block";
+}
+
+// Select emoji
+function selectEmoji(emoji) {
+        selectedEmoji = emoji;
+            document.getElementById("emoji-selection").style.display = "none";
+                createSlides();
+}
+
+// Create emoji slides
+function createSlides() {
+        emojiSlides = generateSlides();
+            document.getElementById("question-boxes").innerHTML = "";
+                showQuestionSlide();
+}
+
+// Show question slide
+function showQuestionSlide() {
+        if (currentSlide < emojiSlides.length) {
+                    const questionBoxes = document.getElementById("question-boxes");
+                            questionBoxes.innerHTML = "";
+                                    emojiSlides[currentSlide].forEach(emoji => {
+                                                    const box = document.createElement("div");
+                                                                box.className = "box";
+                                                                            box.textContent = emoji;
+                                                                                        questionBoxes.appendChild(box);
+                                    });
+                                            document.getElementById("question-section").style.display = "block";
+        } else {
+                    showResult();
+        }
+}
+
+// Handle next slide
+function nextSlide() {
+        currentSlide++;
+            showQuestionSlide();
+}
+
+// Show result
+function showResult() {
+        document.getElementById("question-section").style.display = "none";
+            const finalEmojiBox = document.getElementById("final-emoji-box");
+                finalEmojiBox.textContent = selectedEmoji;
+                    document.getElementById("result").style.display = "block";
+}
+
+// Restart game
+function restartGame() {
+        selectedColor = null;
+            selectedEmoji = null;
+                currentSlide = 0;
+                    emojiSlides = [];
+                        document.getElementById("result").style.display = "none";
+                            document.getElementById("color-selection").style.display = "block";
+                                document.getElementById("color-boxes").innerHTML = "";
+                                    initGame();
+}
+
+// Shuffle array
+function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                            [array[i], array[j]] = [array[j], array[i]];
+        }
+            return array;
+}
+
+// Generate emoji slides
+function generateSlides() {
+        let slides = [];
+            for (let i = 0; i < 5; i++) {
+                        const slideEmojis = shuffleArray(emojis.concat(extraEmojis)).slice(0, 15);
+                                slides.push(slideEmojis);
+            }
+                return slides;
+}
+
+// Start the game
+initGame();
+            }
+}
+        }
+}
+}
+}
+}
+        }
+                                    })
+        }
+}
+}
+}
+                })
+}
+}
+            })
+}
+}
